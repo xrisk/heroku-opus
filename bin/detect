@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # this pack is valid for all apps
-echo "ffmpeg-lame-yasm"
+echo "heroku-opus"
 exit 0

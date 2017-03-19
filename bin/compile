@@ -4,7 +4,7 @@ indent() {
   sed 's/^/       /'
 }
 
-PROFILE_PATH="$1/.profile.d/opus.sh
+PROFILE_PATH="$1/.profile.d/opus.sh"
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 mkdir -p $(dirname $PROFILE_PATH)
