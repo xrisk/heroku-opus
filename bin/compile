@@ -1,0 +1,28 @@
+#!/bin/bash
+
+indent() {
+  sed 's/^/       /'
+}
+
+PROFILE_PATH="$1/.profile.d/opus.sh
+
+echo "exporting PATH and LIBRARY_PATH" | indent
+mkdir -p $(dirname $PROFILE_PATH)
+
+echo 'export PATH="$PATH:$HOME/opus/bin"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/opus/lib"' >> $PROFILE_PATH
+
+mkdir -p "$1/opus"
+export BUILD_DIR=$1"/opus"
+echo "-----> Building in $BUILD_DIR"
+
+echo "-----> Starting opus compilation"
+echo "Downloading opus-1.1.4.tar.gz" | indent
+wget --quiet https://archive.mozilla.org/pub/opus/opus-1.1.4.tar.gz
+echo "Unpacking opus" | indent
+tar -xf opus-1.1.4.tar.gz
+cd opus-1.1.4
+echo "Running configure" | indent
+./configure --prefix="$BUILD_DIR" >/dev/null 2>&1
+echo "Running make install" | indent
+make install >/dev/null 2>&1
