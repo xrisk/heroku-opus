@@ -5,6 +5,7 @@ indent() {
 }
 
 PROFILE_PATH="$1/.profile.d/opus.sh"
+OPUS_VERSION="1.3"
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 mkdir -p $(dirname $PROFILE_PATH)
@@ -17,11 +18,11 @@ export BUILD_DIR=$1"/opus"
 echo "-----> Building in $BUILD_DIR"
 
 echo "-----> Starting opus compilation"
-echo "Downloading opus-1.2.1.tar.gz" | indent
-wget --quiet https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz
+echo "Downloading opus-$OPUS_VERSION.tar.gz" | indent
+wget --quiet https://archive.mozilla.org/pub/opus/opus-$OPUS_VERSION.tar.gz
 echo "Unpacking opus" | indent
-tar -xf opus-1.2.1.tar.gz
-cd opus-1.2.1
+tar -xf opus-$OPUS_VERSION.tar.gz
+cd opus-$OPUS_VERSION
 echo "Running configure" | indent
 ./configure --prefix="$BUILD_DIR" >/dev/null 2>&1
 echo "Running make install" | indent
