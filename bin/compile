@@ -5,7 +5,7 @@ indent() {
 }
 
 PROFILE_PATH="$1/.profile.d/opus.sh"
-OPUS_VERSION="1.3"
+OPUS_VERSION="1.3.1"
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 mkdir -p $(dirname $PROFILE_PATH)
