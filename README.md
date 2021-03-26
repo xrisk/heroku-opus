@@ -6,6 +6,8 @@ Installs the opus codec for usage with heroku apps.
 
 https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app#adding-a-buildpack
 
+Please leave a star if you found this useful.
+
 Also see the warning below.
 
 ## Example use case
@@ -15,4 +17,5 @@ Also see the warning below.
 
 ## Warning
 
-Do not use `discord.opus.load_opus`. This library will be picked up by discord.py automatically!
+Do not use `discord.opus.load_opus` (for discord.py and similar). This library will be picked up by discord.py automatically!
+
