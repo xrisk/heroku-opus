@@ -24,6 +24,6 @@ echo "Unpacking opus" | indent
 tar -xf opus-$OPUS_VERSION.tar.gz
 cd opus-$OPUS_VERSION
 echo "Running configure" | indent
-./configure --prefix="$BUILD_DIR" >/dev/null 2>&1
+./configure --disable-dependency-tracking --disable-doc --prefix="$BUILD_DIR" >/dev/null 2>&1
 echo "Running make install" | indent
-make install >/dev/null 2>&1
+make -j$(nproc) install >/dev/null 2>&1
